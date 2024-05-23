@@ -7,4 +7,4 @@ class ShortLinkModel(models.Model):
     create_date = models.DateTimeField()
 
     def __str__(self):
-        return self.hash_value
+        return self.origin_url

@@ -41,3 +41,8 @@ def url_redirect(request, hash_value):
 
     origin_url = "https://" + url[0].origin_url
     return redirect(origin_url)
+
+def url_check(request):
+    url_list = ShortLinkModel.objects.order_by('-create_date')
+    context = {'url_list': url_list}
+    return render(request, 'url_check.html', context)

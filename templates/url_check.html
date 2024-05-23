@@ -2,11 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short URL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            height: 100%;
+        }
+        h1 {
+            color: #007bff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h1>Short URL List</h1>
+    <div class="container">
+        <h1>Short URL</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>원본 URL</th>
+                    <th>줄인 URL</th>
+                    <th>해시값</th>
+                    <th>삭제버튼</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if url_list %}
+            {% for url in url_list %}
+            <tr>
+                <td>{{ url.origin_url }}</td>
+                <td>{{ url.short_url }}</td>
+                <td>{{ url.hash_value }}</td>
+                <td><button>삭제</button></td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="3">데이터가 없습니다.</td>
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
