@@ -72,7 +72,7 @@
                 <td>{{ url.origin_url }}</td>
                 <td>{{ url.short_url }}</td>
                 <td>{{ url.hash_value }}</td>
-                <td><button>삭제</button></td>
+                <td><a href="{% url 'shortener:url_delete' url.hash_value %}"><button>삭제</button></a></td>
             </tr>
             {% endfor %}
             {% else %}

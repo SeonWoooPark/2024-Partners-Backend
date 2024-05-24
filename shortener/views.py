@@ -59,3 +59,8 @@ def url_check(request):
     url_list = ShortLinkModel.objects.order_by('-create_date')
     context = {'url_list': url_list}
     return render(request, 'url_check.html', context)
+
+def url_delete(request, hash_value):
+    url = ShortLinkModel.objects.filter(hash_value=hash_value)
+    url[0].delete()
+    return redirect('shortener:url_check')
