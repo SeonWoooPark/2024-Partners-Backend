@@ -27,6 +27,10 @@
         }
         h1 {
             color: #007bff;
+            text-decoration: none;
+        }
+        a{
+            text-decoration: none;
         }
         table {
             width: 100%;
@@ -51,7 +55,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Short URL</h1>
+        <a href="{% url 'shortener:index' %}"><h1>Short URL</h1></a>
         <table>
             <thead>
                 <tr>
