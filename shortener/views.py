@@ -24,7 +24,7 @@ def url_create(request):
                 hex_dig = m.hexdigest()
                 hash_value = ''
                 for i in range(8):
-                    rand_idx = random.randint(0, len(hex_dig))
+                    rand_idx = random.randint(0, len(hex_dig)-1)
                     hash_value += hex_dig[rand_idx]
 
                 url.hash_value = hash_value
